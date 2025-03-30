@@ -1,19 +1,17 @@
-# BeatsByArmie
+# BeatsByArmie 🎧
 
-This project was a website I created for users to listen to myself produced instrumentels. I used React js and node js server
+This is a full-stack web app for users to browse and listen to self-produced instrumentals.
 
-## Available Scripts
+Built with:
+- ⚛️ React + Vite (Frontend)
+- 🖥️ Node.js + Express (Backend)
 
-In the project directory, you can run:
+## 📦 Getting Started
 
-### `npm install` (after cloning first time)
+After cloning the repo:
 
-when you cloned repo first time you need to install all neccessary dependencies to be installed in nodemodues folder.
+### Install dependencies
 
-### `npm start`
+```bash
+pnpm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
