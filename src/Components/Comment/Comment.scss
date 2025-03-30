@@ -1,0 +1,126 @@
+@use "../../Partials/global";
+
+.comment {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &__left-col {
+    width: 45px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+
+    .comment__avatar-wrapper {
+      position: relative;
+
+      .comment__user-img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #e0e0e0;
+        cursor: pointer;
+      }
+
+      .comment__tooltip {
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 10;
+      }
+
+      &:hover .comment__tooltip {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__user-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  &__date {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+  }
+
+  &__text {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  &__reactions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    position: relative;
+
+    button {
+      background: #f3f3f3;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #eaeaea;
+        transform: scale(1.05);
+      }
+    }
+
+    .comment__emoji-wrapper {
+      position: relative;
+
+      .comment__emoji-picker {
+        position: absolute;
+        top: 110%;
+        left: 0;
+        z-index: 10;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+      }
+    }
+  }
+}
