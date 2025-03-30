@@ -59,21 +59,13 @@
     border: 2px solid gray;
   }
 
-  &__play-btn {
-    fill: lightcoral;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 100px;
-    height: 40px;
-    width: 40px;
-    padding: 10px;
-    cursor: pointer;
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem; // 🧑‍🔧 Adds proper spacing between buttons
   }
 
-  &__play-btn:hover {
-    fill: rgb(187, 8, 8);
-  }
-
+  &__play-btn,
   &__shuffle-btn {
     fill: lightcoral;
     background-color: transparent;
@@ -81,9 +73,12 @@
     border-radius: 100px;
     height: 40px;
     width: 40px;
-    margin-left: 5;
     padding: 10px;
     cursor: pointer;
+
+    &:hover {
+      fill: rgb(187, 8, 8);
+    }
   }
 
   &__name,

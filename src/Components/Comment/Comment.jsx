@@ -1,24 +1,40 @@
+// Comment.jsx
 import React, { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { motion } from "framer-motion";
-import Picker from "@emoji-mart/react";
-import data from "@emoji-mart/data";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
 import "./Comment.scss";
 
-const userImage =
-  "https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg";
+// Import avatar images
+import icon3 from "../../assets/images/icon3.jpeg";
+import icon6 from "../../assets/images/icon6.jpeg";
+import icon7 from "../../assets/images/icon7.jpeg";
+import icon8 from "../../assets/images/icon8.jpeg";
+import icon9 from "../../assets/images/icon9.jpeg";
+import icon11 from "../../assets/images/icon11.jpeg";
+import icon14 from "../../assets/images/icon14.png";
+import icon15 from "../../assets/images/icon15.jpeg";
+import icon16 from "../../assets/images/icon16.jpeg";
+import placeholder from "../../assets/images/image_placeholder.jpeg";
+
+// Map avatars by filename string
+const avatarMap = {
+  "icon3.jpeg": icon3,
+  "icon6.jpeg": icon6,
+  "icon7.jpeg": icon7,
+  "icon8.jpeg": icon8,
+  "icon9.jpeg": icon9,
+  "icon11.jpeg": icon11,
+  "icon14.png": icon14,
+  "icon15.jpeg": icon15,
+  "icon16.jpeg": icon16,
+};
 
 const Comment = ({ comment }) => {
-  const [reactions, setReactions] = useState({});
-  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-
-  const handleReaction = (emoji) => {
-    const emojiKey = emoji.native || emoji;
-    setReactions((prev) => ({
-      ...prev,
-      [emojiKey]: (prev[emojiKey] || 0) + 1,
-    }));
-  };
+  const [reactions, setReactions] = useState({
+    "👍": 0,
+    "👎": 0,
+  });
 
   const timeStampToDate = (timestamp) => {
     if (!timestamp) return "Unknown date";
@@ -31,6 +47,15 @@ const Comment = ({ comment }) => {
       : formatDistanceToNow(date, { addSuffix: true });
   };
 
+  const handleReaction = (emoji) => {
+    setReactions((prev) => ({
+      ...prev,
+      [emoji]: (prev[emoji] || 0) + 1,
+    }));
+  };
+
+  const avatarSrc = avatarMap[comment.avatar] || placeholder;
+
   return (
     <motion.div
       className="comment"
@@ -42,7 +67,7 @@ const Comment = ({ comment }) => {
       <div className="comment__left-col">
         <div className="comment__avatar-wrapper">
           <img
-            src={userImage}
+            src={avatarSrc}
             alt="User avatar"
             className="comment__user-img"
           />
@@ -63,23 +88,14 @@ const Comment = ({ comment }) => {
         </div>
 
         <div className="comment__reactions">
-          {Object.entries(reactions).map(([emoji, count]) => (
-            <button key={emoji} onClick={() => handleReaction(emoji)}>
-              {emoji} {count}
-            </button>
-          ))}
-
-          <div className="comment__emoji-wrapper">
-            <button onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
-              ➕
-            </button>
-
-            {showEmojiPicker && (
-              <div className="comment__emoji-picker">
-                <Picker data={data} onEmojiSelect={handleReaction} />
-              </div>
-            )}
-          </div>
+          <button onClick={() => handleReaction("👍")}> 
+            <ThumbsUp size={18} strokeWidth={2} />
+            <span>{reactions["👍"]}</span>
+          </button>
+          <button onClick={() => handleReaction("👎")}>
+            <ThumbsDown size={18} strokeWidth={2} />
+            <span>{reactions["👎"]}</span>
+          </button>
         </div>
       </div>
     </motion.div>
