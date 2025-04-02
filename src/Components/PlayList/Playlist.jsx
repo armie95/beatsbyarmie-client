@@ -6,7 +6,7 @@ import "./Playlist.scss";
 
 const BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8080";
 
-function PlayList() {
+const PlayList = () => {
   const navigate = useNavigate();
   const [playlist, setPlayList] = useState([]);
 
@@ -39,7 +39,7 @@ function PlayList() {
               alt={play.name || "Playlist Thumbnail"}
               className="playlist__img"
               src={
-                play?.album_image ? `${BASE_URL}/images/${play.album_image}` : "/placeholder.jpg" // Optional: Add a fallback
+                play?.album_image ? `${BASE_URL}/images/${play.album_image}` : "/placeholder.jpg"
               }
             />
             <p className="playlist__name">{play.name}</p>
@@ -64,6 +64,6 @@ function PlayList() {
       </div>
     </div>
   );
-}
+};
 
 export default PlayList;
