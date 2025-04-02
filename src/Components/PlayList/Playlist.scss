@@ -40,10 +40,10 @@
     z-index: 3;
 
     @include mobile {
-      top: 5vh;
+      top: 8vh;
       left: 5%;
-      width: 70%;
-      font-size: 2.3rem;
+      width: 90%;
+      font-size: 1.6rem; // 🔽 Adjusted for mobile
     }
   }
 
@@ -58,6 +58,7 @@
     background-color: white;
     box-shadow: 0px 0px 7px rgb(204, 204, 204);
     transition-duration: 0.4s;
+
     &:hover {
       transform: scale(1.05);
       box-shadow: 0px 0px 24px -4px gray;
@@ -89,6 +90,7 @@
       background-color: gainsboro;
     }
   }
+
   &__name {
     font-weight: bold;
     color: gray;
@@ -106,6 +108,7 @@
     margin: 0;
     font-weight: bold;
     font-size: 1rem;
+
     @include mobile {
       font-size: 12px;
     }
@@ -120,6 +123,7 @@
     font-weight: 800;
     border-top: 2px solid rgb(6, 45, 45, 0.5);
     border-bottom: 2px solid rgb(6, 45, 45, 0.5);
+
     @include mobile {
       font-size: 14px;
       margin: 2%;
@@ -171,6 +175,7 @@
 
   &__infoH1 {
     color: white;
+
     @include mobile {
       font-size: 1.2rem;
     }
