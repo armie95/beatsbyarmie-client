@@ -9,10 +9,14 @@ const CommentsSection = ({ playlist }) => {
     <section className="comments-section">
       {playlist?.comments?.length > 0 &&
         playlist.comments.map((comment, index) => (
-          <Comment key={`${comment.id}-${comment.timestamp}-${index}`} comment={comment} />
+          <Comment
+            key={`${comment.id}-${comment.timestamp}-${index}`}
+            comment={comment}
+          />
         ))}
     </section>
   );
 };
 
 export default CommentsSection;
+
